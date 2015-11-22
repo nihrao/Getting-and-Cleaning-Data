@@ -3,9 +3,10 @@
 ##Source
 The UCI HAR data set can be accessed at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 The .zip file needs to be extracted in order to access all the required files.
+Please note : All the files located in the 'Internal Signals' folder were ignored for this course project
 
 ##Brief Summary of data
-30 volunteers performed 6 different activities while wearing a smartphone. The smartphone captured various data about their movements.
+30 volunteers performed 6 different activities while wearing a smartphone. The smartphone captured various data about their movements. The goal of this project is to create a tidy data set that contains data merged from test and train data files.
 
 Here is a list of the files used in this course project:
 1. X_train.txt 2. y_train.txt 3. subject_train.txt 4. X_test.txt 5. y_test.txt 6. subject_test.txt 7. activity_labels.txt 8. features.txt
