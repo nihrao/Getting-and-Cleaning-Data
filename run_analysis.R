@@ -11,10 +11,10 @@ testing[,563] <- read.csv(paste(dir,"subject_test.txt",sep=''), sep="", header=F
 activityLabels <- read.csv(paste(dir,"activity_labels.txt",sep=''), sep="", header=FALSE)
 
 # Read features and make the feature names better suited for R with some substitutions
-features = read.csv(paste(dir,"features.txt",sep=''), sep="", header=FALSE)
-features[,2] = gsub('-mean', 'Mean', features[,2])
-features[,2] = gsub('-std', 'Std', features[,2])
-features[,2] = gsub('[-()]', '', features[,2])
+features <- read.csv(paste(dir,"features.txt",sep=''), sep="", header=FALSE)
+features[,2] <- gsub('-mean', 'Mean', features[,2])
+features[,2] <- gsub('-std', 'Std', features[,2])
+features[,2] <- gsub('[-()]', '', features[,2])
 
 # Merge training and test sets together
 allData = rbind(training, testing)
@@ -31,7 +31,7 @@ allData <- allData[,colsWeWant]
 colnames(allData) <- c(features$V2, "Activity", "Subject")
 colnames(allData) <- tolower(colnames(allData))
 
-currentActivity = 1
+currentActivity <- 1
 for (currentActivityLabel in activityLabels$V2) {
   allData$activity <- gsub(currentActivity, currentActivityLabel, allData$activity)
   currentActivity <- currentActivity + 1
@@ -40,7 +40,7 @@ for (currentActivityLabel in activityLabels$V2) {
 allData$activity <- as.factor(allData$activity)
 allData$subject <- as.factor(allData$subject)
 
-tidy = aggregate(allData, by=list(activity = allData$activity, subject=allData$subject), mean)
+tidy <- aggregate(allData, by=list(activity = allData$activity, subject=allData$subject), mean)
 # Remove the subject and activity column, since a mean of those has no use
 tidy[,90] = NULL
 tidy[,89] = NULL
